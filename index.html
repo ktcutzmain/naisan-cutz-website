@@ -1,0 +1,880 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NAISAN.CUTZ | Home Barber</title>
+<meta name="description" content="NAISAN.CUTZ — Home barbering by appointment. Clean cuts, sharp fades and affordable prices.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --black: #070707;
+    --dark: #0d0d0d;
+    --card: #121212;
+    --card2: #171717;
+    --pink: #ff4fa3;
+    --pink-light: #ff8bc4;
+    --white: #f8f8f8;
+    --gray: #999;
+    --border: rgba(255,255,255,.09);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    color: var(--white);
+    font-family: "DM Sans", sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(1100px, 90%);
+    margin: auto;
+}
+
+/* NAV */
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 72px;
+    z-index: 1000;
+    background: rgba(7,7,7,.88);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+    height: 100%;
+    width: min(1100px, 90%);
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: "Archivo Black", sans-serif;
+    font-size: 20px;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--pink);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+}
+
+.nav-links a {
+    color: #aaa;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.book-nav {
+    color: #050505 !important;
+    background: var(--pink);
+    padding: 10px 18px;
+    border-radius: 6px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 92vh;
+    padding-top: 72px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    right: -250px;
+    top: 80px;
+    border-radius: 50%;
+    background: var(--pink);
+    opacity: .09;
+    filter: blur(130px);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+}
+
+.label {
+    color: var(--pink);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(55px, 10vw, 120px);
+    line-height: .88;
+    letter-spacing: -5px;
+    text-transform: uppercase;
+}
+
+.hero h1 span {
+    color: var(--pink);
+}
+
+.hero p {
+    color: var(--gray);
+    max-width: 570px;
+    margin-top: 25px;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 23px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.primary {
+    background: var(--pink);
+    color: #070707;
+}
+
+.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255,79,163,.18);
+}
+
+.secondary {
+    border: 1px solid var(--border);
+    background: var(--card);
+}
+
+.secondary:hover {
+    border-color: var(--pink);
+}
+
+/* INFO BAR */
+
+.info-bar {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--dark);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.info-item {
+    padding: 25px 15px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+}
+
+.info-item:last-child {
+    border-right: none;
+}
+
+.info-item strong {
+    display: block;
+    font-size: 14px;
+}
+
+.info-item span {
+    display: block;
+    color: var(--gray);
+    margin-top: 5px;
+    font-size: 11px;
+}
+
+/* SECTIONS */
+
+section {
+    padding: 100px 0;
+}
+
+.section-label {
+    color: var(--pink);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 9px;
+}
+
+.section-title {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(38px, 6vw, 62px);
+    line-height: 1;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+.section-head {
+    margin-bottom: 38px;
+}
+
+/* SERVICES */
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.service {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .2s;
+}
+
+.service:hover {
+    border-color: rgba(255,79,163,.35);
+    transform: translateY(-3px);
+}
+
+.service h3 {
+    font-size: 15px;
+}
+
+.service p {
+    color: var(--gray);
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.price {
+    color: var(--pink);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+/* ABOUT */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.about-photo {
+    height: 410px;
+    border-radius: 12px;
+    background: linear-gradient(145deg,#151515,#0b0b0b);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.about-text p {
+    color: var(--gray);
+    margin-top: 20px;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.points {
+    margin-top: 25px;
+    display: grid;
+    gap: 11px;
+}
+
+.point {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 13px;
+}
+
+.tick {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(255,79,163,.12);
+    color: var(--pink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* GALLERY */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+}
+
+.photo {
+    height: 340px;
+    border-radius: 9px;
+    border: 1px solid var(--border);
+    background: linear-gradient(145deg,#151515,#0b0b0b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    overflow: hidden;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* BOOKING */
+
+.booking {
+    padding-top: 20px;
+}
+
+.booking-box {
+    border: 1px solid rgba(255,79,163,.18);
+    background:
+        linear-gradient(135deg,#171014,#0e0e0e);
+    border-radius: 14px;
+    padding: 75px 30px;
+    text-align: center;
+}
+
+.booking-box h2 {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(42px,7vw,72px);
+    line-height: .95;
+    letter-spacing: -3px;
+}
+
+.booking-box h2 span {
+    color: var(--pink);
+}
+
+.booking-box p {
+    color: var(--gray);
+    max-width: 500px;
+    margin: 18px auto 28px;
+    font-size: 14px;
+}
+
+/* CONTACT */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 12px;
+}
+
+.contact {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 25px;
+}
+
+.contact small {
+    color: var(--gray);
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.contact a {
+    display: block;
+    margin-top: 8px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.contact a:hover {
+    color: var(--pink);
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 30px 0;
+    color: #666;
+    font-size: 11px;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* MOBILE */
+
+@media(max-width:700px) {
+
+    .nav-links a:not(.book-nav) {
+        display: none;
+    }
+
+    .hero {
+        min-height: 85vh;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-item {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .info-item:last-child {
+        border-bottom: none;
+    }
+
+    .services {
+        grid-template-columns: 1fr;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .about-photo {
+        height: 300px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        height: 390px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+
+<nav>
+    <div class="nav-inner">
+
+        <a href="#" class="logo">
+            NAISAN<span>.CUTZ</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#work">My Work</a>
+            <a href="#contact">Contact</a>
+
+            <a
+                href="https://calendar.app.google/n1HzJee9wZwCrRqz8"
+                class="book-nav"
+            >
+                BOOK
+            </a>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="label">
+                HOME BARBER • BY APPOINTMENT
+            </div>
+
+            <h1>
+                LOOK<br>
+                <span>SHARP.</span>
+            </h1>
+
+            <p>
+                Clean cuts, sharp fades and quality barbering
+                from a comfortable home setup. Book your
+                appointment and come get cleaned up.
+            </p>
+
+            <div class="buttons">
+
+                <a
+                    href="https://calendar.app.google/n1HzJee9wZwCrRqz8"
+                    class="button primary"
+                >
+                    BOOK AN APPOINTMENT
+                </a>
+
+                <a
+                    href="#work"
+                    class="button secondary"
+                >
+                    VIEW MY WORK
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- INFO -->
+
+<div class="info-bar">
+
+    <div class="container info-grid">
+
+        <div class="info-item">
+            <strong>Home Based</strong>
+            <span>Comfortable private setup</span>
+        </div>
+
+        <div class="info-item">
+            <strong>By Appointment</strong>
+            <span>Choose your own time</span>
+        </div>
+
+        <div class="info-item">
+            <strong>Affordable</strong>
+            <span>Quality cuts without the big price</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+    <div class="container">
+
+        <div class="section-head">
+            <div class="section-label">Pricing</div>
+            <h2 class="section-title">Services</h2>
+        </div>
+
+        <div class="services">
+
+            <div class="service">
+                <div>
+                    <h3>Haircut</h3>
+                    <p>Clean finished cut</p>
+                </div>
+                <div class="price">$15</div>
+            </div>
+
+            <div class="service">
+                <div>
+                    <h3>Skin Fade</h3>
+                    <p>Clean skin fade</p>
+                </div>
+                <div class="price">$20</div>
+            </div>
+
+            <div class="service">
+                <div>
+                    <h3>Beard</h3>
+                    <p>Trim and shape</p>
+                </div>
+                <div class="price">$10</div>
+            </div>
+
+            <div class="service">
+                <div>
+                    <h3>Eyebrows</h3>
+                    <p>Clean-up and shape</p>
+                </div>
+                <div class="price">$5</div>
+            </div>
+
+            <div class="service">
+                <div>
+                    <h3>Haircut + Beard</h3>
+                    <p>Complete clean-up</p>
+                </div>
+                <div class="price">$25</div>
+            </div>
+
+            <div class="service">
+                <div>
+                    <h3>Full Package</h3>
+                    <p>Haircut + beard + eyebrows</p>
+                </div>
+                <div class="price">$30</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="container about">
+
+        <div class="about-photo">
+            YOUR PHOTO HERE
+        </div>
+
+        <div class="about-text">
+
+            <div class="section-label">About</div>
+
+            <h2 class="section-title">
+                NAISAN<br>
+                <span style="color:#ff4fa3;">.CUTZ</span>
+            </h2>
+
+            <p>
+                A home-based barber service focused on
+                clean cuts, sharp fades and making sure
+                every customer leaves looking fresh.
+            </p>
+
+            <div class="points">
+
+                <div class="point">
+                    <div class="tick">✓</div>
+                    Private home setup
+                </div>
+
+                <div class="point">
+                    <div class="tick">✓</div>
+                    Appointments only
+                </div>
+
+                <div class="point">
+                    <div class="tick">✓</div>
+                    Affordable pricing
+                </div>
+
+                <div class="point">
+                    <div class="tick">✓</div>
+                    Personal service
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WORK -->
+
+<section id="work">
+
+    <div class="container">
+
+        <div class="section-head">
+            <div class="section-label">Portfolio</div>
+            <h2 class="section-title">My Work</h2>
+        </div>
+
+        <div class="gallery">
+
+            <div class="photo">YOUR CUT PHOTO</div>
+            <div class="photo">YOUR CUT PHOTO</div>
+            <div class="photo">YOUR CUT PHOTO</div>
+            <div class="photo">YOUR CUT PHOTO</div>
+            <div class="photo">YOUR CUT PHOTO</div>
+            <div class="photo">YOUR CUT PHOTO</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BOOKING -->
+
+<section class="booking">
+
+    <div class="container">
+
+        <div class="booking-box">
+
+            <div class="section-label">
+                Appointments
+            </div>
+
+            <h2>
+                READY TO<br>
+                <span>GET FRESH?</span>
+            </h2>
+
+            <p>
+                Choose an available time and book your
+                appointment online.
+            </p>
+
+            <a
+                href="https://calendar.app.google/n1HzJee9wZwCrRqz8"
+                class="button primary"
+            >
+                BOOK NOW
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <div class="section-head">
+            <div class="section-label">Contact</div>
+            <h2 class="section-title">Get In Touch</h2>
+        </div>
+
+        <div class="contact-grid">
+
+            <div class="contact">
+                <small>Phone</small>
+                <a href="tel:0472687576">
+                    0472 687 576
+                </a>
+            </div>
+
+            <div class="contact">
+                <small>TikTok</small>
+                <a
+                    href="https://www.tiktok.com/@ktcutzmain"
+                    target="_blank"
+                >
+                    @ktcutzmain
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container footer-inner">
+
+        <div>
+            © 2026 NAISAN.CUTZ
+        </div>
+
+        <div>
+            Home Barber • By Appointment
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
+```
