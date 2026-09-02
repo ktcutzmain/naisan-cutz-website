@@ -1,678 +1,72 @@
 ```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- HOW BOOKING WORKS -->
 
-<title>NAISAN.CUTZ | Home Barber</title>
+<section id="booking-info">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-body {
-    background: #050505;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-}
-
-:root {
-    --pink: #ff2f92;
-    --pink-light: #ff65ad;
-    --black: #050505;
-    --card: #101010;
-    --border: #242424;
-    --gray: #999;
-}
-
-/* NAVIGATION */
-
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 75px;
-    padding: 0 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(5,5,5,.92);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--border);
-    z-index: 1000;
-}
-
-.logo {
-    font-family: 'Anton', sans-serif;
-    font-size: 27px;
-    letter-spacing: 2px;
-}
-
-.logo span {
-    color: var(--pink);
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 800;
-    margin-left: 25px;
-    transition: .2s;
-}
-
-nav a:hover {
-    color: var(--pink);
-}
-
-/* HERO */
-
-.hero {
-    min-height: 100vh;
-    padding: 140px 8% 80px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::after {
-    content: "";
-    position: absolute;
-    width: 550px;
-    height: 550px;
-    right: -180px;
-    top: 100px;
-    background: var(--pink);
-    filter: blur(190px);
-    opacity: .14;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 950px;
-}
-
-.tag {
-    color: var(--pink);
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 4px;
-    margin-bottom: 22px;
-}
-
-.hero h1 {
-    font-family: 'Anton', sans-serif;
-    font-size: clamp(75px, 14vw, 185px);
-    line-height: .82;
-    letter-spacing: -2px;
-}
-
-.hero h1 span {
-    color: var(--pink);
-}
-
-.hero p {
-    color: var(--gray);
-    max-width: 560px;
-    line-height: 1.7;
-    margin-top: 30px;
-    font-size: 15px;
-}
-
-.buttons {
-    display: flex;
-    gap: 14px;
-    margin-top: 35px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: 17px 27px;
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 800;
-    transition: .25s;
-}
-
-.btn-main {
-    background: var(--pink);
-    color: #000;
-}
-
-.btn-main:hover {
-    background: #fff;
-}
-
-.btn-outline {
-    color: white;
-    border: 1px solid #444;
-}
-
-.btn-outline:hover {
-    border-color: var(--pink);
-    color: var(--pink);
-}
-
-/* MOVING BAR */
-
-.bar {
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 18px;
-    overflow: hidden;
-    white-space: nowrap;
-    color: var(--pink);
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 3px;
-}
-
-.bar span {
-    margin-right: 45px;
-}
-
-/* GENERAL SECTIONS */
-
-section {
-    padding: 110px 8%;
-}
-
-.label {
-    color: var(--pink);
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 4px;
-    margin-bottom: 12px;
-}
-
-.title {
-    font-family: 'Anton', sans-serif;
-    font-size: clamp(50px, 8vw, 90px);
-    line-height: .9;
-    margin-bottom: 50px;
-}
-
-/* SERVICES */
-
-.services {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-}
-
-.service {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 35px;
-    min-height: 190px;
-    transition: .3s;
-}
-
-.service:hover {
-    border-color: var(--pink);
-    transform: translateY(-6px);
-}
-
-.number {
-    color: var(--pink);
-    font-size: 12px;
-    font-weight: 800;
-}
-
-.service h3 {
-    font-size: 24px;
-    margin-top: 35px;
-}
-
-.price {
-    color: var(--pink);
-    font-size: 22px;
-    font-weight: 800;
-    margin-top: 10px;
-}
-
-/* ABOUT */
-
-.about {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 70px;
-    align-items: center;
-}
-
-.about-card {
-    min-height: 430px;
-    border: 1px solid var(--border);
-    background:
-        linear-gradient(135deg, #111 25%, transparent 25%) 0 0/35px 35px,
-        #080808;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.about-card strong {
-    font-family: 'Anton', sans-serif;
-    font-size: 50px;
-    color: var(--pink);
-}
-
-.about-text p {
-    color: var(--gray);
-    line-height: 1.8;
-    margin-bottom: 25px;
-}
-
-.about-list {
-    list-style: none;
-}
-
-.about-list li {
-    padding: 14px 0;
-    border-bottom: 1px solid var(--border);
-    font-weight: 700;
-    font-size: 14px;
-}
-
-.about-list li::before {
-    content: "✦";
-    color: var(--pink);
-    margin-right: 12px;
-}
-
-/* GALLERY */
-
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-}
-
-.photo {
-    height: 300px;
-    background: #101010;
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #555;
-    font-size: 11px;
-    font-weight: 800;
-    transition: .3s;
-}
-
-.photo:hover {
-    border-color: var(--pink);
-    color: var(--pink);
-}
-
-/* BOOKING */
-
-.booking {
-    background: var(--pink);
-    color: #000;
-    text-align: center;
-    padding: 110px 8%;
-}
-
-.booking .label {
-    color: #000;
-}
-
-.booking h2 {
-    font-family: 'Anton', sans-serif;
-    font-size: clamp(60px, 10vw, 120px);
-    line-height: .85;
-}
-
-.booking p {
-    max-width: 520px;
-    margin: 25px auto;
-    line-height: 1.6;
-}
-
-.book-btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 19px 35px;
-    background: #000;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 13px;
-    transition: .25s;
-}
-
-.book-btn:hover {
-    background: #fff;
-    color: #000;
-}
-
-/* CONTACT */
-
-.contact {
-    text-align: center;
-}
-
-.instagram {
-    display: inline-block;
-    color: var(--pink);
-    text-decoration: none;
-    font-size: 27px;
-    font-weight: 800;
-    margin-top: 10px;
-}
-
-.instagram:hover {
-    color: white;
-}
-
-/* FOOTER */
-
-footer {
-    border-top: 1px solid var(--border);
-    padding: 30px 8%;
-    display: flex;
-    justify-content: space-between;
-    color: #666;
-    font-size: 11px;
-}
-
-/* MOBILE */
-
-@media (max-width: 800px) {
-
-    nav {
-        padding: 0 5%;
-    }
-
-    nav .links {
-        display: none;
-    }
-
-    .hero {
-        padding-left: 6%;
-        padding-right: 6%;
-    }
-
-    section {
-        padding: 80px 6%;
-    }
-
-    .services {
-        grid-template-columns: 1fr;
-    }
-
-    .about {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .photo {
-        height: 220px;
-    }
-
-    footer {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<!-- NAV -->
-
-<nav>
-
-    <div class="logo">
-        NAISAN<span>.</span>CUTZ
-    </div>
-
-    <div class="links">
-        <a href="#services">SERVICES</a>
-        <a href="#about">ABOUT</a>
-        <a href="#work">WORK</a>
-        <a href="#book">BOOK</a>
-        <a href="#contact">CONTACT</a>
-    </div>
-
-</nav>
-
-<!-- HERO -->
-
-<header class="hero">
-
-    <div class="hero-content">
-
-        <div class="tag">
-            HOME BARBER • BY APPOINTMENT
-        </div>
-
-        <h1>
-            STAY<br>
-            <span>FRESH.</span>
-        </h1>
-
-        <p>
-            Clean skin fades, sharp beard work and fresh designs.
-            NAISAN.CUTZ brings quality barbering straight to a
-            comfortable private home setup.
-        </p>
-
-        <div class="buttons">
-
-            <a href="#book" class="btn btn-main">
-                BOOK A CUT
-            </a>
-
-            <a href="#services" class="btn btn-outline">
-                VIEW PRICES
-            </a>
-
-        </div>
-
-    </div>
-
-</header>
-
-<!-- BAR -->
-
-<div class="bar">
-    <span>NAISAN.CUTZ</span>
-    <span>SKIN FADES</span>
-    <span>BEARD WORK</span>
-    <span>DESIGNS</span>
-    <span>FRESH CUTS</span>
-    <span>NAISAN.CUTZ</span>
-</div>
-
-<!-- SERVICES -->
-
-<section id="services">
-
-    <div class="label">
-        01 / SERVICES
-    </div>
+    <div class="label">04 / HOW IT WORKS</div>
 
     <h2 class="title">
-        PICK<br>YOUR CUT.
+        BOOKING<br>IS EASY.
     </h2>
 
     <div class="services">
 
         <div class="service">
             <div class="number">01</div>
-            <h3>SKIN FADE</h3>
-            <div class="price">$15</div>
+            <h3>CLICK BOOK NOW</h3>
+            <p style="color:#999; margin-top:12px; line-height:1.6;">
+                Hit the BOOK NOW button and head straight to Instagram.
+            </p>
         </div>
 
         <div class="service">
             <div class="number">02</div>
-            <h3>BEARD + SKIN FADE</h3>
-            <div class="price">$20</div>
+            <h3>SEND A DM</h3>
+            <p style="color:#999; margin-top:12px; line-height:1.6;">
+                DM <strong style="color:#ff2f92;">@naisan.cutz</strong> and let him know you want a cut.
+            </p>
         </div>
 
         <div class="service">
             <div class="number">03</div>
-            <h3>EYEBROWS</h3>
-            <div class="price">$5</div>
+            <h3>CHOOSE YOUR TIME</h3>
+            <p style="color:#999; margin-top:12px; line-height:1.6;">
+                Talk with him in DM and organise a day and time that works.
+            </p>
         </div>
 
         <div class="service">
             <div class="number">04</div>
-            <h3>HAIR DESIGN</h3>
-            <div class="price">$5</div>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section id="about">
-
-    <div class="label">
-        02 / ABOUT
-    </div>
-
-    <div class="about">
-
-        <div class="about-card">
-            <strong>NAISAN.CUTZ</strong>
-        </div>
-
-        <div class="about-text">
-
-            <h2 class="title">
-                CLEAN<br>WORK.
-            </h2>
-
-            <p>
-                NAISAN.CUTZ is a home-based barber service focused
-                on clean fades, sharp details and making sure you
-                leave looking fresh.
+            <h3>GET FRESH</h3>
+            <p style="color:#999; margin-top:12px; line-height:1.6;">
+                Come through for your appointment and leave looking fresh.
             </p>
-
-            <ul class="about-list">
-                <li>PRIVATE HOME SETUP</li>
-                <li>APPOINTMENTS ONLY</li>
-                <li>AFFORDABLE PRICES</li>
-                <li>CLEAN & SHARP RESULTS</li>
-            </ul>
-
         </div>
 
     </div>
 
 </section>
 
-<!-- WORK -->
-
-<section id="work">
-
-    <div class="label">
-        03 / MY WORK
-    </div>
-
-    <h2 class="title">
-        RECENT<br>CUTS.
-    </h2>
-
-    <div class="gallery">
-
-        <div class="photo">ADD CUT PHOTO</div>
-        <div class="photo">ADD CUT PHOTO</div>
-        <div class="photo">ADD CUT PHOTO</div>
-        <div class="photo">ADD CUT PHOTO</div>
-        <div class="photo">ADD CUT PHOTO</div>
-        <div class="photo">ADD CUT PHOTO</div>
-
-    </div>
-
-</section>
-
-<!-- BOOKING -->
+<!-- BOOK NOW -->
 
 <section class="booking" id="book">
 
-    <div class="label">
-        04 / BOOKING
-    </div>
+    <div class="label">05 / BOOK NOW</div>
 
     <h2>
-        GET<br>FRESH.
+        READY<br>FOR A CUT?
     </h2>
 
     <p>
-        Ready for your next cut?
-        Message me on Instagram to book an appointment.
+        Message NAISAN.CUTZ on Instagram to book your appointment.
     </p>
 
     <a
         href="https://www.instagram.com/naisan.cutz/"
         target="_blank"
         class="book-btn">
-
-        BOOK ON INSTAGRAM
-
+        BOOK NOW
     </a>
 
 </section>
-
-<!-- CONTACT -->
-
-<section class="contact" id="contact">
-
-    <div class="label">
-        05 / CONTACT
-    </div>
-
-    <h2 class="title">
-        FOLLOW<br>THE PAGE.
-    </h2>
-
-    <a
-        href="https://www.instagram.com/naisan.cutz/"
-        target="_blank"
-        class="instagram">
-
-        @naisan.cutz
-
-    </a>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-    <div>
-        © 2026 NAISAN.CUTZ
-    </div>
-
-    <div>
-        HOME BARBER • BY APPOINTMENT
-    </div>
-
-</footer>
-
-</body>
-</html>
 ```
